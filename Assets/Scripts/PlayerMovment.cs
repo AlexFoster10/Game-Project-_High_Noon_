@@ -33,11 +33,11 @@ public class PlayerMovement : MonoBehaviour
         float z = Input.GetAxis("Vertical");
 
         //right is the red Axis, foward is the blue axis
-        if (isGrounded)
-        {
-            Vector3 move = transform.right * x + transform.forward * z;
-            controller.Move(move * speed * Time.deltaTime);
-        }
+
+        Vector3 move = transform.right * x + transform.forward * z;
+
+        controller.Move(move * speed * Time.deltaTime);
+
         //check if the player is on the ground so he can jump
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
