@@ -721,13 +721,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 5
   sprintSpeed: 8
-  groundDrag: 5
+  groundDrag: 7
   jumpForce: 6
   jumpCooldown: 0.25
   airMultiplyer: 0.16
   crouchSpeed: 3
   crouchYScale: 0.5
-  playerHeight: 2.2
+  standingPlayerHeight: 2.2
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64

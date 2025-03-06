@@ -25,7 +25,8 @@ public class playerMovement2 : MonoBehaviour
 
 
     [Header("Ground Check")]
-    public float playerHeight;
+    private float playerHeight;
+    public float standingPlayerHeight;
     public LayerMask whatIsGround;
     bool grounded;
 
@@ -63,6 +64,7 @@ public class playerMovement2 : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         readyToJump = true;
+        playerHeight = standingPlayerHeight;
 
         startYScale = transform.localScale.y;
 
@@ -77,6 +79,7 @@ public class playerMovement2 : MonoBehaviour
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
 
         MyInput();
+        SpeedControl();
         StateHandler();
 
         //handledrag
@@ -108,13 +111,21 @@ public class playerMovement2 : MonoBehaviour
         if (Input.GetKey(crouchKey))
         {
             transform.localScale = new Vector3(transform.localScale.x, crouchYScale, transform.localScale.z);
-            rb.AddForce(Vector3.down * 5f, ForceMode.Force);
+            
+            //rb.AddForce(Vector3.down * 5f, ForceMode.Force);
+            playerHeight = standingPlayerHeight * crouchYScale;
+        }
+
+        if (Input.GetKeyDown(crouchKey))
+        {
+            transform.position = new Vector3(transform.position.x, transform.position.y - standingPlayerHeight*crouchYScale*0.5f, transform.position.z);
         }
 
         //crouch stop
         if (Input.GetKeyUp(crouchKey))
         {
             transform.localScale = new Vector3(transform.localScale.x, startYScale, transform.localScale.z);
+            playerHeight = standingPlayerHeight;
         }
 
     }
@@ -171,6 +182,17 @@ public class playerMovement2 : MonoBehaviour
         }
 
         rb.useGravity = !OnSlope();
+    }
+
+    private void SpeedControl()
+    {
+        Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+
+        if((flatVel.magnitude > movementSpeed) && grounded)
+        {
+            Vector3 limVel = flatVel.normalized * movementSpeed;
+            rb.velocity = new Vector3(limVel.x, rb.velocity.y, limVel.z);   
+        }
     }
 
     private void jump()
