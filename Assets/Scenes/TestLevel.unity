@@ -725,7 +725,7 @@ MonoBehaviour:
   jumpForce: 6
   jumpCooldown: 0.25
   airMultiplyer: 0.16
-  crouchSpeed: 3
+  crouchSpeed: 1
   crouchYScale: 0.5
   standingPlayerHeight: 2.2
   whatIsGround:

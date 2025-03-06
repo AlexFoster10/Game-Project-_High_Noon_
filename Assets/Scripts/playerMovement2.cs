@@ -75,9 +75,14 @@ public class playerMovement2 : MonoBehaviour
     }
     private void Update()
     {
+        if (OnSlope())
+        {
+            grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight, whatIsGround);
+        }
 
-        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
-
+        else {
+            grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
+        }
         MyInput();
         SpeedControl();
         StateHandler();
@@ -137,7 +142,7 @@ public class playerMovement2 : MonoBehaviour
         if (Input.GetKey(crouchKey))
         {
             state = MovementState.crouching;
-            movementSpeed = crouchSpeed;
+            movementSpeed = crouchSpeed * 0.5f;
         }
 
         if (grounded && Input.GetKey(sprintKey))
@@ -166,7 +171,8 @@ public class playerMovement2 : MonoBehaviour
         //on slope
         if (OnSlope())
         {
-            rb.AddForce(GetSlopeMoveDircetion() * movementSpeed , ForceMode.Force);
+            rb.AddForce(GetSlopeMoveDircetion() * movementSpeed * 1.4f , ForceMode.Force);
+            rb.AddForce(Vector3.down * 10f, ForceMode.Force);
         }
 
         //on ground
@@ -212,10 +218,12 @@ public class playerMovement2 : MonoBehaviour
 
     private bool OnSlope()
     {
-        if(Physics.Raycast(transform.position, Vector3.down, out slopeHit, playerHeight * 0.5f + 0.2f))
+        if(Physics.Raycast(transform.position, Vector3.down, out slopeHit, playerHeight * 0.5f + 0.4f))
         {
             float angle = Vector3.Angle(Vector3.up, slopeHit.normal);
+            print("ONSLOPE");
             return angle < maxSlopeAngle && angle != 0;
+
         }
 
         return false;
