@@ -99,7 +99,6 @@ public class playerMovement2 : MonoBehaviour
         //jump
         if(Input.GetKey(jumpKey) && readyToJump && grounded)
         {
-            print("JUMP PRESSED");
             readyToJump = false;
             jump();
             Invoke(nameof(resetJump), jumpCooldown);
