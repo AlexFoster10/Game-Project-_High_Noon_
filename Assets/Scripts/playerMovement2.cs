@@ -33,6 +33,7 @@ public class playerMovement2 : MonoBehaviour
     [Header("Slope Handling")]
     public float maxSlopeAngle;
     private RaycastHit slopeHit;
+    private bool exitingSlope;
 
     [Header("Keybinds")]
     public KeyCode jumpKey = KeyCode.Space;
@@ -169,10 +170,10 @@ public class playerMovement2 : MonoBehaviour
 
 
         //on slope
-        if (OnSlope())
+        if (OnSlope() && !exitingSlope)
         {
-            rb.AddForce(GetSlopeMoveDircetion() * movementSpeed * 1.4f , ForceMode.Force);
-            rb.AddForce(Vector3.down * 10f, ForceMode.Force);
+            rb.AddForce(GetSlopeMoveDircetion() * movementSpeed * 20f , ForceMode.Force);
+            rb.AddForce(Vector3.down * 80f, ForceMode.Force);
         }
 
         //on ground
@@ -192,17 +193,30 @@ public class playerMovement2 : MonoBehaviour
 
     private void SpeedControl()
     {
-        Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
-        if((flatVel.magnitude > movementSpeed) && grounded)
+        if (OnSlope())
         {
-            Vector3 limVel = flatVel.normalized * movementSpeed;
-            rb.velocity = new Vector3(limVel.x, rb.velocity.y, limVel.z);   
+            if (rb.velocity.magnitude > movementSpeed)
+            {
+                rb.velocity = rb.velocity.normalized * movementSpeed;
+            }
+        }
+        else
+        {
+            Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+
+            if ((flatVel.magnitude > movementSpeed) && grounded)
+            {
+                Vector3 limVel = flatVel.normalized * movementSpeed;
+                rb.velocity = new Vector3(limVel.x, rb.velocity.y, limVel.z);
+            }
         }
     }
 
     private void jump()
     {
+
+        exitingSlope = true;
         //reset Y velocity
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
@@ -214,6 +228,7 @@ public class playerMovement2 : MonoBehaviour
     private void resetJump()
     {
         readyToJump = true;
+        exitingSlope = false;
     }
 
     private bool OnSlope()
