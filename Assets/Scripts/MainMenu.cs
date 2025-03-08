@@ -7,7 +7,16 @@ public class MainMenu : MonoBehaviour
 {
     public void playGame()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        Time.timeScale = 1f;
+        pauseMenu.gameIsPaused = false;
         SceneManager.LoadSceneAsync("TestLevel");
+    }
+
+    public void menu()
+    {
+        SceneManager.LoadSceneAsync("MainMenu");
     }
 
     public void quitGame()
