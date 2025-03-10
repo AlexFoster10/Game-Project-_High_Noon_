@@ -15,6 +15,7 @@ public class playerMovement2 : MonoBehaviour
 
     public float desiredMoveSpeed;
     public float lastDesiredMoveSpeed;
+    public float actualSpeed;
 
     [Header("Jumping")]
     public float jumpForce;
@@ -104,6 +105,7 @@ public class playerMovement2 : MonoBehaviour
         {
             rb.drag = 0;
         }
+        actualSpeed = rb.velocity.magnitude;
 
     }
     private void MyInput()
@@ -188,7 +190,7 @@ public class playerMovement2 : MonoBehaviour
             //desiredMoveSpeed = slideSpeed;
         }
 
-        if(Mathf.Abs(desiredMoveSpeed - lastDesiredMoveSpeed) > 4f && movementSpeed != 0)
+        if(Mathf.Abs(desiredMoveSpeed - lastDesiredMoveSpeed) > 1f && movementSpeed != 0)
         {
             StopAllCoroutines();
             StartCoroutine(SmoothlyLowerMoveSpeed());
@@ -206,7 +208,7 @@ public class playerMovement2 : MonoBehaviour
     private IEnumerator SmoothlyLowerMoveSpeed()
     {
         float time = 0;
-        float difference = Mathf.Abs(desiredMoveSpeed - movementSpeed)*0.5f;
+        float difference = Mathf.Abs(desiredMoveSpeed - movementSpeed)*0.4f;
         float startVal = movementSpeed;
         while (time < difference) { 
             movementSpeed = Mathf.Lerp(startVal, desiredMoveSpeed, time/difference);
