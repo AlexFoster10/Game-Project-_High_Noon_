@@ -1260,7 +1260,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 399548710}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d646d76b9b108a740a16557181d24fc1, type: 3}
+  m_Script: {fileID: 11500000, guid: 0f5457a70f6bfe9479a9b49781f48951, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: {fileID: 196769554}
@@ -2394,7 +2394,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 886485172}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85a5fab4f13acdf4690fb87ad063154b, type: 3}
+  m_Script: {fileID: 11500000, guid: 570310a2686834c4b9ed62538dbb181d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenuUI: {fileID: 1946826881}
