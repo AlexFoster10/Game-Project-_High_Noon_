@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class playerMovement2 : MonoBehaviour
 {
     // Start is called before the first frame update
     [Header("Movement")]
-    private float movementSpeed;
+    public float movementSpeed;
     public float walkSpeed;
     public float sprintSpeed;
     public float groundDrag;
@@ -48,6 +49,7 @@ public class playerMovement2 : MonoBehaviour
 
 
     public Transform orientation;
+    public string playerSpeed;
 
     float horizontalInput;
     float verticalInput;
@@ -105,7 +107,7 @@ public class playerMovement2 : MonoBehaviour
         {
             rb.drag = 0;
         }
-        actualSpeed = rb.velocity.magnitude;
+        
 
     }
     private void MyInput()
