@@ -16,7 +16,6 @@ public class playerMovement2 : MonoBehaviour
 
     public float desiredMoveSpeed;
     public float lastDesiredMoveSpeed;
-    public float actualSpeed;
 
     [Header("Jumping")]
     public float jumpForce;
@@ -153,7 +152,6 @@ public class playerMovement2 : MonoBehaviour
 
         if (sliding)
         {
-            print("Sliding");
             state = MovementState.sliding;
 
             if(OnSlope() && rb.velocity.y < 0.1f)
@@ -187,7 +185,7 @@ public class playerMovement2 : MonoBehaviour
 
         else if(!grounded)
         {
-            print("air");
+            //print("air");
             state = MovementState.air;
             //desiredMoveSpeed = slideSpeed;
         }
@@ -219,6 +217,7 @@ public class playerMovement2 : MonoBehaviour
         }
 
         movementSpeed = desiredMoveSpeed;
+        print(movementSpeed.ToString());
     }
     private void MovePlayer()
     {
