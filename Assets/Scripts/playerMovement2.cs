@@ -70,6 +70,7 @@ public class playerMovement2 : MonoBehaviour
 
     private void Start()
     {
+        sliding = false;
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
         readyToJump = true;
