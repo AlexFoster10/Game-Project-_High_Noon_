@@ -190,7 +190,7 @@ public class playerMovement2 : MonoBehaviour
             //desiredMoveSpeed = slideSpeed;
         }
 
-        if(Mathf.Abs(desiredMoveSpeed - lastDesiredMoveSpeed) > 1f && movementSpeed != 0)
+        if(Mathf.Abs(desiredMoveSpeed - lastDesiredMoveSpeed) > 3f && movementSpeed != 0)
         {
             StopAllCoroutines();
             StartCoroutine(SmoothlyLowerMoveSpeed());
