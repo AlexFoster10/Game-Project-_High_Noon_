@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class timer : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI timerText;
-    [SerializeField] float remainingTime;
+    public float remainingTime;
 
     public Object sceneToLoad;
     public GameObject failScreenUI;
@@ -57,7 +57,7 @@ public class timer : MonoBehaviour
 
     public void LevelPassed()
     {
-        failScreenUI.SetActive(true);
+        passScreenUI.SetActive(true);
         Time.timeScale = 0f;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
