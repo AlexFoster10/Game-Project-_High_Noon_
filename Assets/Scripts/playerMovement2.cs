@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class playerMovement2 : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -53,9 +54,12 @@ public class playerMovement2 : MonoBehaviour
     float horizontalInput;
     float verticalInput;
 
+    
+
     Vector3 movementDirection;
 
     Rigidbody rb;
+    CapsuleCollider playerCollider;
 
     public MovementState state;
     public enum MovementState 
@@ -72,6 +76,7 @@ public class playerMovement2 : MonoBehaviour
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
+        playerCollider = GetComponent<CapsuleCollider>();
         rb.freezeRotation = true;
         readyToJump = true;
         playerHeight = standingPlayerHeight;
@@ -126,7 +131,10 @@ public class playerMovement2 : MonoBehaviour
         //crouch start
         if (Input.GetKey(crouchKey))
         {
-            transform.localScale = new Vector3(transform.localScale.x, crouchYScale, transform.localScale.z);
+            //transform.localScale = new Vector3(transform.localScale.x, crouchYScale, transform.localScale.z);
+            playerHeight = standingPlayerHeight * crouchYScale;
+            playerCollider.height = playerHeight;
+            
             
             //rb.AddForce(Vector3.down * 5f, ForceMode.Force);
             playerHeight = standingPlayerHeight * crouchYScale;
@@ -140,8 +148,9 @@ public class playerMovement2 : MonoBehaviour
         //crouch stop
         if (Input.GetKeyUp(crouchKey))
         {
-            transform.localScale = new Vector3(transform.localScale.x, startYScale, transform.localScale.z);
+            //transform.localScale = new Vector3(transform.localScale.x, startYScale, transform.localScale.z);
             playerHeight = standingPlayerHeight;
+            playerCollider.height = playerHeight;
         }
 
     }

@@ -15,7 +15,7 @@ public class sliding : MonoBehaviour
     public float maxSlideDuration;
     public float slideForce;
     private float slideTimer;
-
+    CapsuleCollider playerCollider;
     public float slideYScale;
     private float startYScale;
 
@@ -30,7 +30,7 @@ public class sliding : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         pm = GetComponent<playerMovement2>();
-
+        playerCollider = GetComponent<CapsuleCollider>();
         startYScale = playerObject.localScale.y;
 
     }
@@ -45,14 +45,16 @@ public class sliding : MonoBehaviour
         }
         if (Input.GetKey(slideKey))
         {
-            playerObject.localScale = new Vector3(playerObject.localScale.x, slideYScale, playerObject.localScale.z);
+            //playerObject.localScale = new Vector3(playerObject.localScale.x, slideYScale, playerObject.localScale.z);
             pm.playerHeight = pm.standingPlayerHeight * slideYScale * 0.8f;
+            playerCollider.height = pm.playerHeight;
         }
 
         if (Input.GetKeyUp(slideKey))
         {
-            transform.localScale = new Vector3(transform.localScale.x, startYScale, transform.localScale.z);
+            //transform.localScale = new Vector3(transform.localScale.x, startYScale, transform.localScale.z);
             pm.playerHeight = pm.standingPlayerHeight;
+            playerCollider.height = pm.playerHeight;
         }
 
         if (Input.GetKeyUp(slideKey) && pm.sliding)
