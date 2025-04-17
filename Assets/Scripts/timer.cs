@@ -4,13 +4,17 @@ using UnityEngine;
 using TMPro;
 using UnityEditor.Timeline;
 using UnityEngine.SceneManagement;
+using UnityEditor.Animations;
+using System;
 
 public class timer : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI timerText;
+    [SerializeField] GameObject playerPrefab;
+    [SerializeField] GameObject spawnLocation;
     public float remainingTime;
 
-    public Object sceneToLoad;
+    //public Object sceneToLoad;
     public GameObject failScreenUI;
     public GameObject passScreenUI;
 
@@ -40,7 +44,11 @@ public class timer : MonoBehaviour
 
     public void RestartLevel()
     {
-        
+
+        //GameObject player = GameObject.FindGameObjectWithTag("Player");
+        //Debug.Log("ppop");
+        //Destroy(player);
+        //RespawnPlayer();
         failScreenUI.SetActive(false);
         passScreenUI.SetActive(false);
         SceneManager.LoadScene(gameObject.scene.name);
@@ -61,6 +69,12 @@ public class timer : MonoBehaviour
         Time.timeScale = 0f;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+    }
+
+    public void RespawnPlayer()
+    {
+        //Instantiate(playerPrefab, spawnLocation.transform.position, Quaternion.identity);
+
     }
 
 
