@@ -46,4 +46,13 @@ public class pauseMenu : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }
+
+    public void Pass()
+    {
+        passScreenUI.SetActive(true);
+        Time.timeScale = 0f;
+        gameIsPaused = true;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
 }
