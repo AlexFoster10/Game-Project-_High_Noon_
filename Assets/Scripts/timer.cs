@@ -17,22 +17,39 @@ public class timer : MonoBehaviour
     //public Object sceneToLoad;
     public GameObject failScreenUI;
     public GameObject passScreenUI;
-
-
+    public levelCompletionCheck check;
+    public gun gunScript;
+    public GameObject gun;
 
     // Update is called once per frame
+
+    private void Start()
+    {
+        gunScript = gun.GetComponent<gun>();
+    }
+
     void Update()
     {
-
+        //counts down timer
         if (remainingTime > 0)
         {
             remainingTime -= Time.deltaTime;
         }
         else if (remainingTime < 0)
         {
-            remainingTime = 0;
+            if (levelCompletionCheck.level1Check)
+            {
+                remainingTime = 0;
 
-            LevelFailed();
+                LevelFailed();
+            }
+
+            if (!levelCompletionCheck.level1Check) {
+
+                gunScript.Shoot();
+            }
+
+
         }
         
         int seconds = Mathf.RoundToInt(remainingTime%60);
@@ -73,8 +90,7 @@ public class timer : MonoBehaviour
 
     public void RespawnPlayer()
     {
-        //Instantiate(playerPrefab, spawnLocation.transform.position, Quaternion.identity);
-
+        
     }
 
 

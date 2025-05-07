@@ -1181,6 +1181,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 273054070448462979}
+  - component: {fileID: 5545157878518238250}
   m_Layer: 0
   m_Name: Hud Elements
   m_TagString: Untagged
@@ -1205,6 +1206,18 @@ Transform:
   - {fileID: 7380091839563031395}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5545157878518238250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3357414170474118856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a9b66a67de88194eaca9189453573e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3381690291478450135
 GameObject:
   m_ObjectHideFlags: 0
@@ -3088,6 +3101,7 @@ MonoBehaviour:
   remainingTime: 5
   failScreenUI: {fileID: 2690418244772673266}
   passScreenUI: {fileID: 7740868290745485346}
+  check: {fileID: 5545157878518238250}
 --- !u!1 &8866279383972248315
 GameObject:
   m_ObjectHideFlags: 0

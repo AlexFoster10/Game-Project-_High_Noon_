@@ -11,7 +11,7 @@ public class MainMenu : MonoBehaviour
         Cursor.visible = false;
         Time.timeScale = 1f;
         pauseMenu.gameIsPaused = false;
-        SceneManager.LoadSceneAsync("TestLevel");
+        SceneManager.LoadSceneAsync("Level 1");
     }
 
     public void menu()
