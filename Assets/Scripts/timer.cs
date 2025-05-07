@@ -2,9 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEditor.Timeline;
 using UnityEngine.SceneManagement;
-using UnityEditor.Animations;
 using System;
 
 public class timer : MonoBehaviour
