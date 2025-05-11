@@ -7,6 +7,8 @@ using UnityEngine;
 
 public class powerCellScript : MonoBehaviour
 {
+
+    [SerializeField] AudioClip pickup;
     [Header("References")]
     public timer timerScript;
     
@@ -24,8 +26,10 @@ public class powerCellScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        sfxManager.instance.playSFX(pickup, transform, 1f);
         print("COLLISION");
         timerScript.remainingTime += 3;
         this.gameObject.SetActive(false);
+
     }
 }

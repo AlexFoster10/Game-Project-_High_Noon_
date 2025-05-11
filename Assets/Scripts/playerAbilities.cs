@@ -81,7 +81,7 @@ public class playerAbilities : MonoBehaviour
         {
             sfxManager.instance.playRandSFX(dashSFX, transform, 1f);
             playerMovement.Dash();
-            dashCooldown = 6;
+            dashCooldown = 3;
         }
 
     }
@@ -92,7 +92,7 @@ public class playerAbilities : MonoBehaviour
         {
             sfxManager.instance.playSFX(slowSFX, transform, 1f);
             StartCoroutine(slow());
-            timeSlowCooldown = 6;
+            timeSlowCooldown = 10;
         }
     }
 
@@ -101,7 +101,7 @@ public class playerAbilities : MonoBehaviour
 
         Time.timeScale = 0.5f;
 
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(2);
 
         Time.timeScale = 1f;
 

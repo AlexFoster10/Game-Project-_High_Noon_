@@ -97,7 +97,6 @@ GameObject:
   - component: {fileID: 3798537183921274064}
   - component: {fileID: 8496301798316009984}
   - component: {fileID: 7922869410777929042}
-  - component: {fileID: 5587758637780214843}
   m_Layer: 0
   m_Name: PowerCell
   m_TagString: Untagged
@@ -148,6 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a89806ffd125ce488e4ed1711e5d566, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickup: {fileID: 8300000, guid: ddad2792ecd9f0e4c82cecdff626a7e2, type: 3}
   timerScript: {fileID: 0}
 --- !u!54 &8496301798316009984
 Rigidbody:
@@ -199,16 +199,3 @@ CapsuleCollider:
   m_Height: 1.97
   m_Direction: 1
   m_Center: {x: 0, y: 0.08, z: 0}
---- !u!114 &5587758637780214843
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8557517070776831258}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7707a266fb9a774da5e0dd557a1e37f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timerScript: {fileID: 0}
