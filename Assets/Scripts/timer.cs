@@ -10,6 +10,9 @@ public class timer : MonoBehaviour
     [SerializeField] TextMeshProUGUI timerText;
     [SerializeField] GameObject playerPrefab;
     [SerializeField] GameObject spawnLocation;
+    [SerializeField] TextMeshProUGUI timerTextPassScreen;
+    [SerializeField] AudioClip gameOverSFX;
+    [SerializeField] AudioClip levelPassedSFX;
     public float remainingTime;
 
     //public Object sceneToLoad;
@@ -18,6 +21,7 @@ public class timer : MonoBehaviour
     public levelCompletionCheck check;
     public gun gunScript;
     public GameObject gun;
+    
 
     // Update is called once per frame
 
@@ -35,16 +39,16 @@ public class timer : MonoBehaviour
         }
         else if (remainingTime < 0)
         {
-            if (levelCompletionCheck.level1Check)
+            if (levelCompletionCheck.level1Check==true)
             {
                 remainingTime = 0;
-
                 LevelFailed();
             }
 
-            if (!levelCompletionCheck.level1Check) {
+            else {
 
-                gunScript.Shoot();
+                StartCoroutine(timerEndSlow());
+
             }
 
 
@@ -54,6 +58,14 @@ public class timer : MonoBehaviour
         int milliseconds = Mathf.RoundToInt(remainingTime * 100 % 1000);
         //timerText.text = string.Format("{0:00}:{1:00}", seconds, milliseconds);
         timerText.text = remainingTime.ToString("0.00");
+
+    }
+
+    IEnumerator timerEndSlow()
+    {
+        gunScript.Shoot();
+
+        yield return new WaitForSeconds(1);
 
     }
 
@@ -72,6 +84,7 @@ public class timer : MonoBehaviour
 
     public void LevelFailed()
     {
+        sfxManager.instance.playSFX(gameOverSFX, transform, 1f);
         failScreenUI.SetActive(true);
         Time.timeScale = 0f;
         Cursor.lockState = CursorLockMode.None;
@@ -80,10 +93,19 @@ public class timer : MonoBehaviour
 
     public void LevelPassed()
     {
+        //passScreenUI.SetActive(true);
+        //Time.timeScale = 0f;
+        //Cursor.lockState = CursorLockMode.None;
+        //Cursor.visible = true;
+        sfxManager.instance.playSFX(levelPassedSFX, transform, 1f);
+        timerTextPassScreen.text = remainingTime.ToString("0.00");
         passScreenUI.SetActive(true);
         Time.timeScale = 0f;
+        //gameIsPaused = true;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+        levelCompletionCheck.level1Check = true;
+        print("occurs");
     }
 
     public void RespawnPlayer()

@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class playerShoot : MonoBehaviour
@@ -10,7 +11,6 @@ public class playerShoot : MonoBehaviour
 
     public GameObject gun;
     public gun gunScript;
-    public levelCompletionCheck check;
     public GameObject timerParent;
     public timer timer;
 
@@ -27,7 +27,9 @@ public class playerShoot : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && levelCompletionCheck.level1Check
             && (timer.remainingTime>0) )
         {
+            //print("level1 is true and mopuse clicked");
             gunScript.Shoot();
+
         }
     }
 }

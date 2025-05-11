@@ -56,9 +56,9 @@ public class playerMovement2 : MonoBehaviour
 
     
 
-    Vector3 movementDirection;
+    public Vector3 movementDirection;
 
-    Rigidbody rb;
+    public Rigidbody rb;
     CapsuleCollider playerCollider;
 
     public MovementState state;
@@ -256,6 +256,13 @@ public class playerMovement2 : MonoBehaviour
         rb.useGravity = !OnSlope();
     }
 
+    public void Dash()
+    {
+        rb.AddForce(movementDirection.normalized * movementSpeed * 20f, ForceMode.Impulse);
+    }
+
+
+
     private void SpeedControl()
     {
 
@@ -316,3 +323,4 @@ public class playerMovement2 : MonoBehaviour
         return Vector3.ProjectOnPlane(direction, slopeHit.normal).normalized;
     }
 }
+

@@ -23,5 +23,6 @@ public class targetScript : MonoBehaviour
     {
         print("COLLISION");
         timerScript.LevelPassed();
+        //levelCompletionCheck.level1Check = true;
     }
 }

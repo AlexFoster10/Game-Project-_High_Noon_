@@ -9,6 +9,7 @@ public class gun : MonoBehaviour
     [SerializeField] private gunData gunData;
     [SerializeField] private Transform muzzle;
     [SerializeField] TextMeshProUGUI timerText;
+    
     [Header("References")]
     public timer timerScript;
 
@@ -34,8 +35,13 @@ public class gun : MonoBehaviour
 
                     Debug.Log(hitInfo.transform.name);
                     if(hitInfo.transform.tag == "Target") {
-                        Pass();
+                        timerScript.LevelPassed();
                     }
+                    else
+                    {
+                        timerScript.LevelFailed();
+                    }
+
                 }
 
                 gunData.currentAmmo--;
@@ -48,7 +54,7 @@ public class gun : MonoBehaviour
     private void Update()
     {
         timeSinceLastShot += Time.deltaTime;
-        Debug.DrawRay(muzzle.position, muzzle.forward);
+        Debug.DrawRay(muzzle.position, muzzle.forward*10,Color.red);
     }
 
 
@@ -57,15 +63,6 @@ public class gun : MonoBehaviour
         //not implemented
     }
 
-    public void Pass()
-    {
-        timerText.text = timerScript.remainingTime.ToString("0.00");
-        passScreenUI.SetActive(true);
-        Time.timeScale = 0f;
-        //gameIsPaused = true;
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
-    }
 
 
 }
