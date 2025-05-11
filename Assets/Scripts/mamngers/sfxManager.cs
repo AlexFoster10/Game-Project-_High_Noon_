@@ -7,14 +7,22 @@ public class sfxManager : MonoBehaviour
     public static sfxManager instance;
 
     [SerializeField] private AudioSource sFXObj;
+    [SerializeField] AudioClip backingTrack;
 
 
     private void Awake()
     {
+        
         if (instance == null)
         {
             instance = this;
+            DontDestroyOnLoad(gameObject);
         }
+        else
+        {
+            Destroy(gameObject);
+        }
+        
     }
 
     public void playSFX(AudioClip audioClip,Transform transform, float volume)
@@ -61,6 +69,14 @@ public class sfxManager : MonoBehaviour
         //delete
         Destroy(audioSource.gameObject, clipDuration);
 
+    }
+
+    private void Start()
+    {
+        AudioSource audioSource = Instantiate(sFXObj, this.transform);
+        audioSource.clip = backingTrack;
+        audioSource.loop = true;
+        audioSource.Play();
     }
 
 }

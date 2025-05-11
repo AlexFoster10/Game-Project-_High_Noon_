@@ -45,3 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sFXObj: {fileID: 4070361536143012488, guid: 0aa4abae3947708428465821feb1757b, type: 3}
+  backingTrack: {fileID: 8300000, guid: 4235b22e693745a41bec96bf239dffa7, type: 3}
