@@ -139,8 +139,8 @@ public class playerMovement2 : MonoBehaviour
             //rb.AddForce(Vector3.down * 5f, ForceMode.Force);
             playerHeight = standingPlayerHeight * crouchYScale;
         }
-
-        if (Input.GetKeyDown(crouchKey))
+        bool check = (Time.timeScale == 0f);
+        if (Input.GetKeyDown(crouchKey) && !(check))
         {
             transform.position = new Vector3(transform.position.x, transform.position.y - standingPlayerHeight*crouchYScale*0.5f, transform.position.z);
         }
