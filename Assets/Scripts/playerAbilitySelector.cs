@@ -28,7 +28,10 @@ public class playerAbilitySelector : MonoBehaviour
         dashObj.SetActive(false);
         slowObj.SetActive(false);
         timerText.SetActive(true);
-
+        for (int i = 0; i < 3; i++)
+        {
+            CycleAbility();
+        }
     }
 
 

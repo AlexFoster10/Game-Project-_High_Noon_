@@ -24,7 +24,10 @@ public class timerTrackingScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.rotation = Quaternion.LookRotation(transform.position - mainCam.transform.position);
+        
+        transform.LookAt(transform.position + mainCam.transform.rotation * Vector3.forward,
+        mainCam.transform.rotation * Vector3.up);
         transform.position = unit.position + offset;
+
     }
 }
