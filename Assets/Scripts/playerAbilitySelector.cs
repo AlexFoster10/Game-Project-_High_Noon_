@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class playerAbilitySelector : MonoBehaviour
@@ -11,6 +12,7 @@ public class playerAbilitySelector : MonoBehaviour
     public GameObject timerObj;
     public GameObject dashObj;
     public GameObject slowObj;
+    public GameObject timerText;
 
 
     private void Start()
@@ -21,9 +23,11 @@ public class playerAbilitySelector : MonoBehaviour
         timerObj =  abilityHolder.transform.GetChild(0).gameObject;
         dashObj = abilityHolder.transform.GetChild(1).gameObject;
         slowObj = abilityHolder.transform.GetChild(2).gameObject;
+        //timerText.SetActive(true);
         timerObj.SetActive(true);
         dashObj.SetActive(false);
         slowObj.SetActive(false);
+        timerText.SetActive(true);
 
     }
 
@@ -34,14 +38,15 @@ public class playerAbilitySelector : MonoBehaviour
         {
             case abilities.Default:
                 selectedAbility = abilities.Dash;
+                
                 timerObj.SetActive(false);
                 dashObj.SetActive(true);
                 slowObj.SetActive(false);
+                timerText.SetActive(false);
                 break;
 
             case abilities.Dash:
                 selectedAbility = abilities.TimeSlow;
-                timerObj.SetActive(false);
                 dashObj.SetActive(false);
                 slowObj.SetActive(true);
                 break;
@@ -49,7 +54,7 @@ public class playerAbilitySelector : MonoBehaviour
             case abilities.TimeSlow:
                 selectedAbility = abilities.Default;
                 timerObj.SetActive(true);
-                dashObj.SetActive(false);
+                timerText.SetActive(true);
                 slowObj.SetActive(false);
                 break;
 

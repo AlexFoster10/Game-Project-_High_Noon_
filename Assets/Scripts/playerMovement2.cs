@@ -258,7 +258,7 @@ public class playerMovement2 : MonoBehaviour
 
     public void Dash()
     {
-        rb.AddForce(movementDirection.normalized * movementSpeed * 20f, ForceMode.Impulse);
+        rb.AddForce(movementDirection.normalized * movementSpeed * 30f, ForceMode.Impulse);
     }
 
 

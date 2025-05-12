@@ -1505,7 +1505,7 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.6
+  m_Radius: 0.45
   m_Height: 2.1
   m_Direction: 1
   m_Center: {x: 0, y: 0.07, z: 0.08}
@@ -1561,7 +1561,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gun: {fileID: 8484215406552419999}
-  gunScript: {fileID: 0}
+  gunScript: {fileID: 7291823749594113205}
   timerParent: {fileID: 0}
   timer: {fileID: 0}
 --- !u!114 &1067813561248460821
@@ -1581,6 +1581,7 @@ MonoBehaviour:
   timerObj: {fileID: 0}
   dashObj: {fileID: 0}
   slowObj: {fileID: 0}
+  timerText: {fileID: 0}
 --- !u!114 &5820370803321137531
 MonoBehaviour:
   m_ObjectHideFlags: 0
