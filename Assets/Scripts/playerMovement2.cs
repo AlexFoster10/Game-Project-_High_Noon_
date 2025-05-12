@@ -226,7 +226,7 @@ public class playerMovement2 : MonoBehaviour
         }
 
         movementSpeed = desiredMoveSpeed;
-        print(movementSpeed.ToString());
+        //print(movementSpeed.ToString());
     }
     private void MovePlayer()
     {

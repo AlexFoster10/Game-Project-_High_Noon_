@@ -14,6 +14,7 @@ public class timer : MonoBehaviour
     [SerializeField] AudioClip gameOverSFX;
     [SerializeField] AudioClip levelPassedSFX;
     public float remainingTime;
+    private float levelEndCheck = 0;
 
     //public Object sceneToLoad;
     public GameObject failScreenUI;
@@ -33,21 +34,27 @@ public class timer : MonoBehaviour
     void Update()
     {
         //counts down timer
+        if (levelEndCheck > 0)
+        {
+            levelEndCheck -= Time.deltaTime;
+        }
+
         if (remainingTime > 0)
         {
             remainingTime -= Time.deltaTime;
         }
         else if (remainingTime < 0)
         {
-            if (levelCompletionCheck.level1Check==true)
+            if (levelCompletionCheck.level1Check==true && levelEndCheck==0)
             {
                 remainingTime = 0;
                 LevelFailed();
             }
 
             else {
-
-                StartCoroutine(timerEndSlow());
+                levelEndCheck = 2;
+                gunScript.Shoot();
+                //StartCoroutine(timerEndSlow());
 
             }
 
@@ -65,7 +72,7 @@ public class timer : MonoBehaviour
     {
         gunScript.Shoot();
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2);
 
     }
 
