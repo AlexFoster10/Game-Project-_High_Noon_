@@ -21,8 +21,8 @@ public class targetScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        print("COLLISION");
-        timerScript.LevelPassed();
+        //print("COLLISION");
+        //timerScript.LevelPassed();
         //levelCompletionCheck.level1Check = true;
     }
 }
