@@ -173,6 +173,8 @@ Transform:
   m_LocalScale: {x: 1, y: 0.99999994, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 4091279888600368093}
+  - {fileID: 2571476699903040859}
   - {fileID: 4844617382413624358}
   - {fileID: 1487008185984350800}
   - {fileID: 8514640011685402266}
@@ -546,12 +548,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 885538207843570351}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.5014945, y: 0.64811885, z: 0.49443093, w: 0.28979862}
-  m_LocalPosition: {x: -0.264, y: 0.6, z: 0.825}
-  m_LocalScale: {x: 0.099999994, y: 0.099999994, z: 0.099999994}
+  m_LocalRotation: {x: 0.5122828, y: 0.62859744, z: 0.51902336, w: 0.27027097}
+  m_LocalPosition: {x: -0.1316235, y: 0.005417571, z: 0.3834317}
+  m_LocalScale: {x: 0.045662098, y: 0.045662098, z: 0.04566209}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 2571476699903040859}
+  m_Father: {fileID: 3960164881382126553}
   m_LocalEulerAnglesHint: {x: -20.502, y: 111.488, z: 89.506}
 --- !u!1 &1165694414344157849
 GameObject:
@@ -2665,16 +2667,15 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4415299997740517276}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.038510237, y: 9.341611e-31, z: 2.4239482e-29, w: 0.9992582}
+  m_LocalPosition: {x: -0.011075602, y: -0.23874934, z: -0.013249034}
+  m_LocalScale: {x: 0.456621, y: 0.456621, z: 0.456621}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7714878089432679802}
   - {fileID: 3894770340625375282}
   - {fileID: 2355793652632993120}
-  - {fileID: 4091279888600368093}
-  m_Father: {fileID: 3991422300973546042}
+  m_Father: {fileID: 3960164881382126553}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4432504953790139042
 GameObject:
@@ -2941,7 +2942,6 @@ RectTransform:
   - {fileID: 5536718742820719438}
   - {fileID: 7946453009580832305}
   - {fileID: 9161227256095920589}
-  - {fileID: 2571476699903040859}
   m_Father: {fileID: 5932571694629583168}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -4795,6 +4795,12 @@ MonoBehaviour:
   smooth: 8
   swayMult: 3
   timerScript: {fileID: 0}
+  speedCurve: 0
+  speedCurve1: 0
+  travelLimit: {x: 0.025, y: 0.025, z: 0.025}
+  bobLimit: {x: 0.01, y: 0.01, z: 0.01}
+  bobExaggeration: 0
+  multiplier: {x: 0, y: 0, z: 0}
   passScreenUI: {fileID: 0}
 --- !u!1 &8526826920397953866
 GameObject:
