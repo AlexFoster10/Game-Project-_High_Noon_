@@ -21,7 +21,7 @@ public class powerCellScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(0f, 30f * Time.deltaTime,0f, Space.Self);
+        //transform.Rotate(0f, 30f * Time.deltaTime,0f, Space.Self);
     }
 
     private void OnTriggerEnter(Collider other)

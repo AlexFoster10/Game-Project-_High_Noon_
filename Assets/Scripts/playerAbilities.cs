@@ -42,7 +42,7 @@ public class playerAbilities : MonoBehaviour
             timeSlowCooldown = 0;
         }
 
-        if (Input.GetKey(KeyCode.E))
+        if (Input.GetKey(KeyCode.E) && Time.timeScale!=0f)
         {
             UseAbility();
         }
