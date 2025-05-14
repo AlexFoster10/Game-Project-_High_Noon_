@@ -8,12 +8,12 @@ public class DogMovement : MonoBehaviour
     public Transform playerTransform;
     NavMeshAgent agent;
     Animator animator;
-    float barkTimer;
+    public float barkTimer;
     [SerializeField] AudioClip[] barkSFX;
 
     void Start()
     {
-        barkTimer = Random.Range(0f, 10.0f);
+        barkTimer = Random.Range(0f, 15.0f);
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();   
     }
@@ -21,15 +21,20 @@ public class DogMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        barkTimer -= Time.deltaTime;   
         agent.destination = playerTransform.position;
         animator.SetFloat("Speed", agent.velocity.magnitude);
+        if (barkTimer <= 0f)
+        {
+            bark();
+        }
     }
 
 
 
     void bark()
     {
-        sfxManager.instance.playRandSFX(barkSFX, transform.transform, 1f);
-        barkTimer = Random.Range(0f, 10.0f);
+        sfxManager.instance.playRandSFX(barkSFX, transform.transform, 0.7f);
+        barkTimer = Random.Range(0f, 15.0f);
     }
 }
