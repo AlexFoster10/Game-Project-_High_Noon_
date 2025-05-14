@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class pauseMenu : MonoBehaviour
 {
@@ -38,7 +39,20 @@ public class pauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         gameIsPaused = false;
     }
-    
+
+    public void Level2()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        pauseMenuUI.SetActive(false);
+        failScreenUI.SetActive(false);
+        passScreenUI.SetActive(false);
+        Time.timeScale = 1f;
+        gameIsPaused = false;
+        SceneManager.LoadSceneAsync("Level 2");
+    }
+
+
     public void Pause()
     {
         pauseMenuUI.SetActive(true);

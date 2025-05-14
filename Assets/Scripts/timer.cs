@@ -112,7 +112,7 @@ public class timer : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         levelCompletionCheck.level1Check = true;
-        print("occurs");
+        //print("occurs");
     }
 
     public void RespawnPlayer()
