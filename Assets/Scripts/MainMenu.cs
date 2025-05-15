@@ -10,8 +10,6 @@ public class MainMenu : MonoBehaviour
     public GameObject homeScreen;
     public GameObject insrtructionsCanvas;
     public bool firstLaunch = true;
-    string lvlName;
-    int callCount = 1;
     public GameObject but1;
     public GameObject but2;
     public GameObject but3;
@@ -24,7 +22,6 @@ public class MainMenu : MonoBehaviour
     {
         if (gameObject.scene.name == "MainMenu")
         {
-            callCount = 1;
             levelSelect = GameObject.Find("Level Select");
             homeScreen = GameObject.Find("Home Screen");
             onStartDeactivate();
@@ -34,10 +31,11 @@ public class MainMenu : MonoBehaviour
 
 
 
-        
 
-        if (gameObject.scene.name == "Level 1" && !levelCompletionCheck.getLevelStatus("Level 1"))
-        {
+
+        if (gameObject.scene.name == "Level 1" && !levelCompletionCheck.getLevelStatus("Level 1")
+            )
+            {
             insrtructionsCanvas = GameObject.Find("Instructions");
             insrtructionsCanvas.SetActive(false);
             Cursor.lockState = CursorLockMode.None;
@@ -51,10 +49,35 @@ public class MainMenu : MonoBehaviour
             struct2.SetActive(false);
             struct3.SetActive(false);
             struct4.SetActive(false);
-            
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+
+        }
+
+        if (gameObject.scene.name == "Level 2" && !levelCompletionCheck.getLevelStatus("Level 2")
+            )
+        {
+            insrtructionsCanvas = GameObject.Find("Instructions");
+            insrtructionsCanvas.SetActive(false);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            Time.timeScale = 0f;
+            insrtructionsCanvas.SetActive(true);
+            struct3 = GameObject.Find("Struct3");
+            struct4 = GameObject.Find("Struct4");
+            struct4.SetActive(false);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+
         }
 
         if (gameObject.scene.name == "Level 1" && levelCompletionCheck.getLevelStatus("Level 1"))
+        {
+            insrtructionsCanvas = GameObject.Find("Instructions");
+            insrtructionsCanvas.SetActive(false);
+        }
+
+        if (gameObject.scene.name == "Level 2" && levelCompletionCheck.getLevelStatus("Level 2"))
         {
             insrtructionsCanvas = GameObject.Find("Instructions");
             insrtructionsCanvas.SetActive(false);

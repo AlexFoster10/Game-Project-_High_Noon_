@@ -16,6 +16,7 @@ public class gun : MonoBehaviour
     [SerializeField] TextMeshProUGUI timerText;
     [SerializeField] private float smooth;
     [SerializeField] private float swayMult;
+    [SerializeField] AudioClip[] shotSFX;
 
     [Header("References")]
     public timer timerScript;
@@ -74,6 +75,7 @@ public class gun : MonoBehaviour
         {
              if (CanShoot())
             {
+                sfxManager.instance.playRandSFX(shotSFX, transform, 0.6f);
                 if(Physics.Raycast(muzzle.position, muzzle.forward, out RaycastHit hitInfo, gunData.maxD)) {
 
                     Debug.Log(hitInfo.transform.name);

@@ -52,6 +52,18 @@ public class pauseMenu : MonoBehaviour
         SceneManager.LoadSceneAsync("Level 2");
     }
 
+    public void Level3()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        pauseMenuUI.SetActive(false);
+        failScreenUI.SetActive(false);
+        passScreenUI.SetActive(false);
+        Time.timeScale = 1f;
+        gameIsPaused = false;
+        SceneManager.LoadSceneAsync("Level 3");
+    }
+
 
     public void Pause()
     {

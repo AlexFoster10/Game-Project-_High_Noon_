@@ -4794,6 +4794,10 @@ MonoBehaviour:
   timerText: {fileID: 0}
   smooth: 8
   swayMult: 3
+  shotSFX:
+  - {fileID: 8300000, guid: e1e1a37ecc386a64ead3c6fe8926bd1d, type: 3}
+  - {fileID: 8300000, guid: 75f954a045cee2f488ef02ce133e854b, type: 3}
+  - {fileID: 8300000, guid: 383eab303ac32fb40bc2911b91f7575e, type: 3}
   timerScript: {fileID: 0}
   speedCurve: 0
   speedCurve1: 0
