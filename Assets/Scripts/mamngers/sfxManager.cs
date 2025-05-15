@@ -9,10 +9,6 @@ public class sfxManager : MonoBehaviour
     [SerializeField] private AudioSource sFXObj;
     [SerializeField] AudioClip backingTrack;
 
-    public static bool level1Check = true;
-    public static bool level2Check;
-    public static bool level3Check;
-
 
     private void Awake()
     {

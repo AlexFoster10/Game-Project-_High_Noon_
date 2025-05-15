@@ -26,10 +26,12 @@ public class powerCellScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        sfxManager.instance.playSFX(pickup, transform, 1f);
-        print("COLLISION");
-        timerScript.remainingTime += 3;
-        this.gameObject.SetActive(false);
-
+        if (other.tag == "Player")
+        {
+            sfxManager.instance.playSFX(pickup, transform, 1f);
+            print("COLLISION");
+            timerScript.remainingTime += 3;
+            this.gameObject.SetActive(false);
+        }
     }
 }

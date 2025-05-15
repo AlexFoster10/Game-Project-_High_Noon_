@@ -13,7 +13,7 @@ public class DogMovement : MonoBehaviour
 
     void Start()
     {
-        barkTimer = Random.Range(0f, 15.0f);
+        barkTimer = Random.Range(0f, 20.0f);
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();   
     }
@@ -34,7 +34,7 @@ public class DogMovement : MonoBehaviour
 
     void bark()
     {
-        sfxManager.instance.playRandSFX(barkSFX, transform.transform, 0.7f);
-        barkTimer = Random.Range(0f, 15.0f);
+        sfxManager.instance.playRandSFX(barkSFX, transform.transform, 0.5f);
+        barkTimer = Random.Range(0f, 20.0f);
     }
 }

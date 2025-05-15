@@ -27,7 +27,7 @@ public class playerShoot : MonoBehaviour
 
         bool check = (Time.timeScale == 0f);
 
-        if (Input.GetMouseButtonDown(0) && levelCompletionCheck.level1Check
+        if (Input.GetMouseButtonDown(0) && levelCompletionCheck.getLevelStatus(gameObject.scene.name)
             && (timer.remainingTime>0) && !(check))
         {
             //print("level1 is true and mopuse clicked");

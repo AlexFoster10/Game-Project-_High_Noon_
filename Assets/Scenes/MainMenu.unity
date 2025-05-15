@@ -367,6 +367,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2194848682336210736, guid: 7476d0ed6c7b55340901dac237ff1c15, type: 3}
+      propertyPath: backingTrack
+      value: 
+      objectReference: {fileID: 8300000, guid: 2bfb198b8110c684bb07c0497277d29c, type: 3}
     - target: {fileID: 4352393376820463681, guid: 7476d0ed6c7b55340901dac237ff1c15, type: 3}
       propertyPath: m_Name
       value: SoundEffectsManager

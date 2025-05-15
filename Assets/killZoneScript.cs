@@ -11,7 +11,12 @@ public class killZoneScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        timerScript.LevelFailed();
+
+        if (other.tag == "Player")
+        {
+            timerScript.LevelFailed();
+        }
+        
 
     }
 }

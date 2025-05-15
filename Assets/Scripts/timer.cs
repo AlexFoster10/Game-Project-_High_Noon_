@@ -19,7 +19,6 @@ public class timer : MonoBehaviour
     //public Object sceneToLoad;
     public GameObject failScreenUI;
     public GameObject passScreenUI;
-    public levelCompletionCheck check;
     public gun gunScript;
     public GameObject gun;
     
@@ -45,7 +44,7 @@ public class timer : MonoBehaviour
         }
         else if (remainingTime < 0)
         {
-            if (levelCompletionCheck.level1Check==true && levelEndCheck==0)
+            if (levelCompletionCheck.getLevelStatus(gameObject.scene.name) && levelEndCheck==0)
             {
                 remainingTime = 0;
                 LevelFailed();
@@ -111,7 +110,7 @@ public class timer : MonoBehaviour
         //gameIsPaused = true;
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
-        levelCompletionCheck.level1Check = true;
+        levelCompletionCheck.markLevelComplete(gameObject.scene.name);
         //print("occurs");
     }
 
