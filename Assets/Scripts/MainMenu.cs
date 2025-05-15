@@ -10,10 +10,13 @@ public class MainMenu : MonoBehaviour
     public GameObject homeScreen;
     public bool firstLaunch = true;
     string lvlName;
+    int callCount = 1;
+    GameObject child;
     private void Start()
     {
         if (gameObject.scene.name == "MainMenu")
         {
+            callCount = 1;
             levelSelect = GameObject.Find("Level Select");
             homeScreen = GameObject.Find("Home Screen");
             onStartDeactivate();
@@ -63,17 +66,32 @@ public class MainMenu : MonoBehaviour
         }
     }
     
-    void loadLevel()
+    void loadLevel1()
     {
-        SceneManager.LoadSceneAsync(lvlName);
+        SceneManager.LoadSceneAsync("Level 1");
     }
-
+    void loadLevel2()
+    {
+        if (levelCompletionCheck.level1Check)
+        {
+            Time.timeScale = 1f;
+            SceneManager.LoadSceneAsync("Level 2");
+        }
+    }
+    void loadLevel3()
+    {
+        if (levelCompletionCheck.level2Check)
+        {
+            Time.timeScale = 1f;
+            SceneManager.LoadSceneAsync("Level 3");
+        }
+    }
     void levelIconCheck()
     {
         for (int i = 0, count = levelSelect.transform.childCount - 1; i < count; i++)
         {
             //print("This Many Children");
-            GameObject child = levelSelect.transform.GetChild(i).gameObject;
+            child = levelSelect.transform.GetChild(i).gameObject;
             {
                 GameObject temp = child.transform.GetChild(0).gameObject;
                 if (temp.name == "Pass")
@@ -135,14 +153,17 @@ public class MainMenu : MonoBehaviour
             }
         }
 
-        for (int x = 0, count = transform.childCount - 1; x < count; x++)
-        {
-            GameObject child = transform.GetChild(x).gameObject;
-            lvlName = child.name;
-            print(lvlName);
-            Button button = child.GetComponent<Button>();
-            button.onClick.AddListener(loadLevel);
-        }
+        child = levelSelect.transform.GetChild(0).gameObject;
+        Button button = levelSelect.transform.GetChild(0).gameObject.GetComponent<Button>();
+        button.onClick.AddListener(loadLevel1);
+
+        child = levelSelect.transform.GetChild(1).gameObject;
+        button = levelSelect.transform.GetChild(1).gameObject.GetComponent<Button>();
+        button.onClick.AddListener(loadLevel2);
+
+        child = levelSelect.transform.GetChild(2).gameObject;
+        button = levelSelect.transform.GetChild(2).gameObject.GetComponent<Button>();
+        button.onClick.AddListener(loadLevel3);
     }
 }
 
