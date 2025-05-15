@@ -1,79 +1,72 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-public class MainMenu : MonoBehaviour
 
+public class levelSelectScript : MonoBehaviour
 {
-    public GameObject levelSelect;
-    public GameObject homeScreen;
-    public bool firstLaunch = true;
-    string lvlName;
-    private void Start()
+    // Start is called before the first frame update
+    void Start()
     {
-        if (gameObject.scene.name == "MainMenu")
-        {
-            levelSelect = GameObject.Find("Level Select");
-            homeScreen = GameObject.Find("Home Screen");
-            onStartDeactivate();
-            levelIconCheck();
-            levelSelect.SetActive(false);
-        }
-    }
-    public void playGame()
-    {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-        Time.timeScale = 1f;
-        pauseMenu.gameIsPaused = false;
-        SceneManager.LoadSceneAsync("Level 1");
+        //levelIconCheck();
+        //onStartDeactivate();
+        //gameObject.SetActive(false);
     }
 
-    public void menu()
+    // Update is called once per frame
+    void Update()
     {
-        SceneManager.LoadSceneAsync("MainMenu");
-    }
 
-    public void levels()
-    {
-        homeScreen.SetActive(false);
-        levelSelect.SetActive(true);
-    }
-
-    public void quitGame()
-    {
-        Application.Quit();
     }
 
     void onStartDeactivate()
     {
-        for (int i = 0, count = levelSelect.transform.childCount - 1; i < count; i++)
+        for (int i = 0, count = transform.childCount - 1; i < count; i++)
         {
             //print("This Many Children");
-            GameObject child = levelSelect.transform.GetChild(i).gameObject;
+            GameObject child = transform.GetChild(i).gameObject;
             {
                 GameObject temp = child.transform.GetChild(0).gameObject;
                 if (temp.name == "Pass")
                 {
-                    temp.SetActive(false);
+                    switch (child.name)
+                    {
+                        case "Level 1":
 
+                            if (levelCompletionCheck.getLevelStatus("Level 1"))
+                            {
+                                temp.SetActive(false);
+                                print("start Getting run");
+                            }
+                            break;
+                        case "Level 2":
+
+                            if (levelCompletionCheck.getLevelStatus("Level 2"))
+                            {
+                                temp.SetActive(false);
+                            }
+                            break;
+                        case "Level 3":
+
+                            if (levelCompletionCheck.getLevelStatus("Level 3"))
+                            {
+                                temp.SetActive(false);
+                            }
+                            break;
+
+                    }
                 }
             }
         }
     }
-    
-    void loadLevel()
-    {
-        SceneManager.LoadSceneAsync(lvlName);
-    }
 
     void levelIconCheck()
     {
-        for (int i = 0, count = levelSelect.transform.childCount - 1; i < count; i++)
+        for (int i = 0, count = transform.childCount-1; i < count; i++)
         {
             //print("This Many Children");
-            GameObject child = levelSelect.transform.GetChild(i).gameObject;
+            GameObject child = transform.GetChild(i).gameObject;
             {
                 GameObject temp = child.transform.GetChild(0).gameObject;
                 if (temp.name == "Pass")
@@ -106,9 +99,9 @@ public class MainMenu : MonoBehaviour
                 }
             }
         }
-        for (int y = 0, count = levelSelect.transform.childCount - 1; y < count; y++)
+        for (int y = 0, count = transform.childCount - 1; y < count; y++)
         {
-            GameObject child = levelSelect.transform.GetChild(y).gameObject;
+            GameObject child = transform.GetChild(y).gameObject;
             {
                 GameObject temp = child.transform.GetChild(1).gameObject;
                 if (temp.name == "Lock")
@@ -134,15 +127,7 @@ public class MainMenu : MonoBehaviour
                 }
             }
         }
-
-        for (int x = 0, count = transform.childCount - 1; x < count; x++)
-        {
-            GameObject child = transform.GetChild(x).gameObject;
-            lvlName = child.name;
-            print(lvlName);
-            Button button = child.GetComponent<Button>();
-            button.onClick.AddListener(loadLevel);
-        }
+        
     }
 }
 
