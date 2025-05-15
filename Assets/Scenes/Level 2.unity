@@ -1914,6 +1914,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 662aaafcbdddbea4491bacd5430242a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelSelect: {fileID: 0}
+  homeScreen: {fileID: 0}
+  insrtructionsCanvas: {fileID: 0}
+  firstLaunch: 1
+  but1: {fileID: 0}
+  but2: {fileID: 0}
+  but3: {fileID: 0}
+  struct1: {fileID: 0}
+  struct2: {fileID: 0}
+  struct3: {fileID: 0}
+  struct4: {fileID: 0}
 --- !u!114 &1085830856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5816,7 +5827,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6688265639536612150}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
@@ -6065,7 +6076,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7298450062441577041}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 

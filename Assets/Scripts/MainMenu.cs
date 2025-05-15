@@ -8,9 +8,17 @@ public class MainMenu : MonoBehaviour
 {
     public GameObject levelSelect;
     public GameObject homeScreen;
+    public GameObject insrtructionsCanvas;
     public bool firstLaunch = true;
     string lvlName;
     int callCount = 1;
+    public GameObject but1;
+    public GameObject but2;
+    public GameObject but3;
+    public GameObject struct1;
+    public GameObject struct2;
+    public GameObject struct3;
+    public GameObject struct4;
     GameObject child;
     private void Start()
     {
@@ -23,6 +31,36 @@ public class MainMenu : MonoBehaviour
             levelIconCheck();
             levelSelect.SetActive(false);
         }
+
+
+
+        
+
+        if (gameObject.scene.name == "Level 1" && !levelCompletionCheck.getLevelStatus("Level 1"))
+        {
+            insrtructionsCanvas = GameObject.Find("Instructions");
+            insrtructionsCanvas.SetActive(false);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+            Time.timeScale = 0f;
+            insrtructionsCanvas.SetActive(true);
+            struct1 = GameObject.Find("Struct1");
+            struct2 = GameObject.Find("Struct2");
+            struct3 = GameObject.Find("Struct3");
+            struct4 = GameObject.Find("Struct4");
+            struct2.SetActive(false);
+            struct3.SetActive(false);
+            struct4.SetActive(false);
+            
+        }
+
+        if (gameObject.scene.name == "Level 1" && levelCompletionCheck.getLevelStatus("Level 1"))
+        {
+            insrtructionsCanvas = GameObject.Find("Instructions");
+            insrtructionsCanvas.SetActive(false);
+        }
+
+
     }
     public void playGame()
     {
@@ -31,6 +69,32 @@ public class MainMenu : MonoBehaviour
         Time.timeScale = 1f;
         pauseMenu.gameIsPaused = false;
         SceneManager.LoadSceneAsync("Level 1");
+    }
+
+    public void FirstButton()
+    {
+        struct1.SetActive(false);
+        struct2.SetActive(true);
+    }
+
+    public void SecondButton()
+    {
+        struct2.SetActive(false);
+        struct3.SetActive(true);
+    }
+
+    public void ThirdButton()
+    {
+        struct3.SetActive(false);
+        struct4.SetActive(true);
+    }
+
+    public void FourthButton()
+    {
+        struct4.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        Time.timeScale = 1f;
     }
 
     public void menu()
@@ -68,6 +132,7 @@ public class MainMenu : MonoBehaviour
     
     void loadLevel1()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadSceneAsync("Level 1");
     }
     void loadLevel2()
