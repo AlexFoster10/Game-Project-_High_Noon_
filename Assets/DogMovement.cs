@@ -19,7 +19,7 @@ public class DogMovement : MonoBehaviour
         checkAgro();
         barkTimer = Random.Range(0f, 20.0f);
         agent = GetComponent<NavMeshAgent>();
-        
+
         animator = GetComponent<Animator>();
     }
 
@@ -28,12 +28,14 @@ public class DogMovement : MonoBehaviour
     {
         barkTimer -= Time.deltaTime;
         agroTimer -= Time.deltaTime;
-        if (agroTimer <= 0f) {
+        if (agroTimer <= 0f)
+        {
             checkAgro();
         }
-        if (agrod) { 
+        if (agrod)
+        {
             agent.destination = playerTransform.position;
-         }
+        }
         animator.SetFloat("Speed", agent.velocity.magnitude);
         if (barkTimer <= 0f)
         {
@@ -46,13 +48,13 @@ public class DogMovement : MonoBehaviour
         if (Vector3.Distance(transform.position, playerTransform.position) < 30f)
         {
 
-            agrod =  true;
+            agrod = true;
         }
 
-        else 
+        else
         {
             agroTimer = 1f;
-            agrod =  false;
+            agrod = false;
         }
 
     }

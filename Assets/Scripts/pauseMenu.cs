@@ -74,6 +74,7 @@ public class pauseMenu : MonoBehaviour
         Cursor.visible = true;
     }
 
+
     public void Pass()
     {
         passScreenUI.SetActive(true);

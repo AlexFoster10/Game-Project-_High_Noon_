@@ -24237,6 +24237,8 @@ MonoBehaviour:
   struct2: {fileID: 0}
   struct3: {fileID: 0}
   struct4: {fileID: 0}
+  struct5: {fileID: 0}
+  struct6: {fileID: 0}
 --- !u!224 &6330428709387487518
 RectTransform:
   m_ObjectHideFlags: 0

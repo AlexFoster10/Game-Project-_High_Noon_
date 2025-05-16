@@ -82,6 +82,8 @@ public class timer : MonoBehaviour
         //Debug.Log("ppop");
         //Destroy(player);
         //RespawnPlayer();
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         failScreenUI.SetActive(false);
         passScreenUI.SetActive(false);
         SceneManager.LoadScene(gameObject.scene.name);

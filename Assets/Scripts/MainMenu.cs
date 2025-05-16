@@ -17,11 +17,14 @@ public class MainMenu : MonoBehaviour
     public GameObject struct2;
     public GameObject struct3;
     public GameObject struct4;
+    public GameObject struct5;
+    public GameObject struct6;
     GameObject child;
     private void Start()
     {
         if (gameObject.scene.name == "MainMenu")
         {
+            Time.timeScale = 1f;
             levelSelect = GameObject.Find("Level Select");
             homeScreen = GameObject.Find("Home Screen");
             onStartDeactivate();
@@ -36,6 +39,7 @@ public class MainMenu : MonoBehaviour
         if (gameObject.scene.name == "Level 1" && !levelCompletionCheck.getLevelStatus("Level 1")
             )
             {
+            print("This running too");
             insrtructionsCanvas = GameObject.Find("Instructions");
             insrtructionsCanvas.SetActive(false);
             Cursor.lockState = CursorLockMode.None;
@@ -58,16 +62,13 @@ public class MainMenu : MonoBehaviour
             )
         {
             insrtructionsCanvas = GameObject.Find("Instructions");
-            insrtructionsCanvas.SetActive(false);
+            insrtructionsCanvas.SetActive(true);
+            struct5 = GameObject.Find("Struct5");
+            struct6 = GameObject.Find("Struct6");
+            struct6.SetActive(false);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
             Time.timeScale = 0f;
-            insrtructionsCanvas.SetActive(true);
-            struct3 = GameObject.Find("Struct3");
-            struct4 = GameObject.Find("Struct4");
-            struct4.SetActive(false);
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
 
         }
 
@@ -75,12 +76,16 @@ public class MainMenu : MonoBehaviour
         {
             insrtructionsCanvas = GameObject.Find("Instructions");
             insrtructionsCanvas.SetActive(false);
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }
 
         if (gameObject.scene.name == "Level 2" && levelCompletionCheck.getLevelStatus("Level 2"))
         {
             insrtructionsCanvas = GameObject.Find("Instructions");
             insrtructionsCanvas.SetActive(false);
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
         }
 
 
@@ -88,7 +93,7 @@ public class MainMenu : MonoBehaviour
     public void playGame()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        Cursor.visible = true;
         Time.timeScale = 1f;
         pauseMenu.gameIsPaused = false;
         SceneManager.LoadSceneAsync("Level 1");
@@ -115,6 +120,20 @@ public class MainMenu : MonoBehaviour
     public void FourthButton()
     {
         struct4.SetActive(false);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+        Time.timeScale = 1f;
+    }
+
+    public void FifthButton()
+    {
+        struct5.SetActive(false);
+        struct6.SetActive(true);
+    }
+
+    public void SixthButton()
+    {
+        struct6.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         Time.timeScale = 1f;
@@ -171,14 +190,17 @@ public class MainMenu : MonoBehaviour
         if (levelCompletionCheck.level2Check)
         {
             Time.timeScale = 1f;
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
             SceneManager.LoadSceneAsync("Level 3");
+            
+          
         }
     }
     void levelIconCheck()
     {
         for (int i = 0, count = levelSelect.transform.childCount - 1; i < count; i++)
         {
-            //print("This Many Children");
             child = levelSelect.transform.GetChild(i).gameObject;
             {
                 GameObject temp = child.transform.GetChild(0).gameObject;

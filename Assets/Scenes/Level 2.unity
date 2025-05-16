@@ -909,8 +909,8 @@ RectTransform:
   m_GameObject: {fileID: 363272559}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.92, y: 0.92, z: 0.92}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1664172168}
   - {fileID: 566437719}
@@ -919,8 +919,8 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 424.2, y: 211.8}
-  m_SizeDelta: {x: 848.4, y: 423.6}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
 --- !u!114 &363272561
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1263,7 +1263,7 @@ GameObject:
   - component: {fileID: 566437721}
   - component: {fileID: 566437720}
   m_Layer: 5
-  m_Name: Struct4
+  m_Name: Struct6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1782,7 +1782,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 1790115153}
+  m_TargetGraphic: {fileID: 719440774}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -2388,7 +2388,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1085830855}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: ThirdButton
+        m_MethodName: FifthButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2780,6 +2780,8 @@ MonoBehaviour:
   struct2: {fileID: 0}
   struct3: {fileID: 0}
   struct4: {fileID: 0}
+  struct5: {fileID: 0}
+  struct6: {fileID: 0}
 --- !u!114 &1085830856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3850,37 +3852,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1330460937}
   m_CullTransparentMesh: 1
---- !u!1 &1343565876
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1343565877}
-  m_Layer: 0
-  m_Name: Kill Zones
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1343565877
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1343565876}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.391396, y: 4.9384766, z: -12.76353}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1348310827 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5536718742820719438, guid: e05a7828fff638542a6267f5f46bacfd, type: 3}
@@ -4452,7 +4423,7 @@ GameObject:
   - component: {fileID: 1664172170}
   - component: {fileID: 1664172169}
   m_Layer: 5
-  m_Name: Struct3
+  m_Name: Struct5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4822,9 +4793,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8531254606074531287}
-        m_TargetAssemblyTypeName: timer, Assembly-CSharp
-        m_MethodName: RestartLevel
+      - m_Target: {fileID: 1085830856}
+        m_TargetAssemblyTypeName: pauseMenu, Assembly-CSharp
+        m_MethodName: Level2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5452,7 +5423,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1085830855}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: FourthButton
+        m_MethodName: SixthButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -7225,7 +7196,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3620354575208616207}
-  - component: {fileID: 9007300147771785638}
   m_Layer: 0
   m_Name: Hud Elements
   m_TagString: Untagged
@@ -7863,18 +7833,6 @@ MonoBehaviour:
   passScreenUI: {fileID: 993358709}
   gunScript: {fileID: 0}
   gun: {fileID: 1371580564}
---- !u!114 &9007300147771785638
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2261913201819251524}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a9b66a67de88194eaca9189453573e4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -7886,7 +7844,6 @@ SceneRoots:
   - {fileID: 3620354575208616207}
   - {fileID: 2351058918640687052}
   - {fileID: 1534727178}
-  - {fileID: 1343565877}
   - {fileID: 1907215192}
   - {fileID: 2107838280}
   - {fileID: 1392771756971081624}
